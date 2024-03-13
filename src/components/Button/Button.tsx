@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ href, onClick, className, children }) => {
-  const buttonStyle = "h-9 px-4 text-sm rounded-full cursor-pointer font-medium transition-all duration-300  hover:underline text-base uppercase flex items-center";
+  const buttonStyle = "h-9 px-4 rounded-full cursor-pointer font-medium transition-all duration-300  hover:underline text-sm uppercase flex items-center";
   const combinedClassName = className ? `${buttonStyle} ${className}` : buttonStyle;
 
   if (href) {
