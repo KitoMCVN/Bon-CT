@@ -23,3 +23,15 @@
   background-repeat: no-repeat;
   text-align: end;
 }
+
+.mc-online::after {
+  content: "";
+  position: absolute;
+  transform: translateY(-18px);
+  right: 10px;
+  background-image: url(//forums.cubecraftcdn.com/xenforo/serve/styles/cubecraft/cubecraft/sidebar-icons/members-online-widget.png);
+  height: 55px;
+  width: 61px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

@@ -13,7 +13,7 @@ const Image: React.FC<ImageProps> = ({ src, alt, className }) => {
     setImageError(true);
   };
 
-  return <>{imageError ? <div className={`${className} animate-pulse bg-slate-300`}></div> : <img src={src} alt={alt} className={`${className} bg-slate-300 `} onError={handleError} />}</>;
+  return <>{imageError ? <div className={`${className} animate-pulse dark:bg-gray-700 bg-gray-300`}></div> : <img src={src} alt={alt} className={`${className}`} onError={handleError} />}</>;
 };
 
 export default Image;

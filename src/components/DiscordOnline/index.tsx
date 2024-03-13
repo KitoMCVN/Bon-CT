@@ -1,1 +1,1 @@
-export { default as DiscordOnline } from "./DiscordOnline";
+export { MoreDiscordOnline, DiscordOnline } from "./DiscordOnline";

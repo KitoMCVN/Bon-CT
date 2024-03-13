@@ -9,7 +9,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ items = SidebarItems }) => {
   return (
-    <div className='hidden lg:block bg-white dark:bg-gray-800 overflow-hidden rounded-lg shadow-sm w-[210px] -mt-[60px]'>
+    <div className='hidden lg:block bg-white dark:bg-gray-800 overflow-hidden rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] w-[210px] -mt-[60px]'>
       <div className='w-[210px]'>
         <div className='max-h-40 overflow-hidden w-full flex items-center justify-center sidebar-header'>
           <img

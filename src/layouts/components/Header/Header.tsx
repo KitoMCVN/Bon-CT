@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <div
-      className={`lg:ml-[230px] bg-white dark:bg-gray-800 md:sticky md:w-auto w-full rounded-none fixed top-0 left-0 transition-all duration-300 md:rounded-lg shadow-sm ${scrolled ? "sticky top-0 left-0  md:rounded-tl-none md:rounded-tr-none " : ""}`}
+      className={`lg:ml-[230px] bg-white dark:bg-gray-800 md:sticky md:w-auto w-full rounded-none fixed top-0 left-0 transition-all duration-300 md:rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] ${scrolled ? "sticky top-0 left-0  md:rounded-tl-none md:rounded-tr-none " : ""}`}
     >
       <nav className='px-5 h-[60px] flex items-center justify-between'>
         <div className='flex items-center gap-4'>
