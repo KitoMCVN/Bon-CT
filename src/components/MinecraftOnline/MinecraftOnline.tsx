@@ -42,7 +42,7 @@ const MinecraftOnline: React.FC = () => {
       <div className='mc-online flex p-[15px] pr-14 border-b-[2px] border-b-sky-600'>
         <h3 className='font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50'>Server Online</h3>
       </div>
-      {serverData ? (
+      {serverData && serverData.online ? (
         <div className=''>
           {serverData.players && serverData.players.list ? (
             <div className='px-[15px]'>
@@ -62,23 +62,17 @@ const MinecraftOnline: React.FC = () => {
         </div>
       ) : (
         <div className='px-[15px]'>
-          <div className='flex items-center py-3 gap-4'>
-            <div className='size-8 rounded-sm bg-slate-300 animate-pulse'></div>
-            <div>
-              <p className='h-3 w-24 rounded-full bg-slate-300 animate-pulse'></p>
-              <p className='mt-2 h-2 w-20 rounded-full bg-slate-300 animate-pulse'></p>
-            </div>
-          </div>
+          <p className='py-3 text-gray-800 dark:text-gray-300 text-sm'>Máy chủ đang offline</p>
         </div>
       )}
       <div className='px-[15px] py-3 bg-gray-100 dark:bg-gray-700/50 rounded-bl-lg rounded-br-lg border-t dark:border-t-gray-600 border-t-gray-400'>
         <p className='text-gray-600 dark:text-gray-300 text-xs'>
-          {serverData ? (
+          {serverData && serverData.online ? (
             <>
-              Trực tuyến: {serverData.players.online} (Tối đa: {serverData.players.max})
+              Trực tuyến: {serverData.players.online || 0} (Tối đa: {serverData.players.max})
             </>
           ) : (
-            <>Trực tuyến: 0 (Tối đa: 0)</>
+            <>Trực tuyến: 0 (Offline)</>
           )}
         </p>
       </div>
