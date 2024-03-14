@@ -46,7 +46,7 @@ const MinecraftOnline: React.FC = () => {
         <div className=''>
           {serverData.players && serverData.players.list ? (
             <div className='px-[15px]'>
-              {serverData.players.list.map((player) => (
+              {serverData.players.list.slice(0, 10).map((player) => (
                 <div className='flex items-center py-3 gap-4' key={player.name}>
                   <Image className='size-8 rounded-sm' src={`https://mineskin.eu/avatar/${player.name}/32`} alt={`${player.name}`} />
                   <div className='text-sm text-gray-800 dark:text-gray-300'>
