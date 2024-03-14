@@ -113,7 +113,7 @@ const DiscordOnline: React.FC = () => {
 const MoreDiscordOnline: React.FC = () => {
   const [serverData, setServerData] = useState<ServerData | null>(null);
   const statusTextMap: Record<string, string> = {
-    online: "✨ Trực tuyến",
+    online: "🧊 Trực tuyến",
     dnd: "⛔ Không làm phiền",
     idle: "🌙 Chờ",
   };

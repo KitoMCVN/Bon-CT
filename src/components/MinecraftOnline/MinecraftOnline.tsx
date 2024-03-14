@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "../Image";
 
-interface Player {
+interface PlayerProps {
   name: string;
   uuid: string;
 }
 
-interface ServerData {
+interface ServerDataProps {
   ip: string;
   port: number;
   players: {
     online: number;
     max: number;
-    list?: Player[];
+    list?: PlayerProps[];
   };
   online: boolean;
 }
 
 const MinecraftOnline: React.FC = () => {
-  const [serverData, setServerData] = useState<ServerData | null>(null);
+  const [serverData, setServerData] = useState<ServerDataProps | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +57,7 @@ const MinecraftOnline: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className='px-[15px] py-3 text-gray-800 text-sm'>Không có ai chơi cả</div>
+            <div className='px-[15px] py-3 text-gray-800 dark:text-gray-300 text-sm'>Không có ai chơi cả</div>
           )}
         </div>
       ) : (

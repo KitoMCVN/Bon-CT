@@ -1,24 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Assuming you're using FontAwesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { SidebarItemProps, SidebarItems } from "../../../data/sidebarData";
 
 interface SidebarProps {
   items: SidebarItemProps[];
+  isOpen: boolean;
+  toggleMenu: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ items = SidebarItems }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items = SidebarItems }) => {
   return (
-    <div className='hidden lg:block bg-white dark:bg-gray-800 overflow-hidden rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] w-[210px] -mt-[60px]'>
-      <div className='w-[210px]'>
-        <div className='max-h-40 overflow-hidden w-full flex items-center justify-center sidebar-header'>
+    <div
+      className={`${isOpen ? "translate-x-0" : "xl:translate-x-0 -translate-x-full"} xl:block xl:z-0 z-50 xl:static fixed top-0 left-0 bg-white dark:bg-gray-800 overflow-hidden xl:rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] xl:w-[210px] xl:-mt-[60px] xl:h-auto h-dvh w-full max-w-80 transition-transform duration-300 ease-in-out`}
+    >
+      <div className='xl:w-[210px]'>
+        <div className='xl:hidden flex p-4 border-b text-gray-700 dark:text-gray-300 dark:border-b-gray-600 border-b-gray-400 bg-gray-100 dark:bg-gray-700/50 items-center justify-between bg-gray-'>
+          <h3 className='font-bold uppercase'>Menu</h3>
+          <FontAwesomeIcon icon={faXmark} onClick={toggleMenu} className='cursor-pointer' />
+        </div>
+        <div className='xl:flex hidden max-h-40 overflow-hidden w-full items-center justify-center sidebar-header'>
           <img
             className='size-36 object-contain'
             src='https://media.discordapp.net/attachments/1063673504014278697/1215198681725280256/Khong_Co_Tieu_e154_20240307084345.png?ex=65fbe0f7&is=65e96bf7&hm=86bd82066bd51bb7a5f582fc55645bfae6fcd1a804a8b24c6d7d882344ccdcd1&=&format=webp&quality=lossless&width=501&height=501'
             alt='logo'
           />
         </div>
-        <div className='mt-5'>
+        <div className='mt-5 xl:h-auto h-full sidebar-link overflow-y-scroll'>
           <div className='pr-5'>
             {items.map((item) => (
               <Link key={item.id} to={item.path}>
@@ -32,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items = SidebarItems }) => {
             ))}
           </div>
         </div>
-        <div className='sidebar-footer h-44 w-full mt-10'></div>
+        <div className='sidebar-footer h-44 w-full mt-10 hidden xl:block'></div>
       </div>
     </div>
   );

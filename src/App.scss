@@ -10,6 +10,24 @@
   }
 }
 
+#root {
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #d1d5db;
+  }
+}
+
+.dark #root ::-webkit-scrollbar-thumb {
+  background-color: #374151;
+}
+
 .sidebar-header {
   background: url(./assets/imgs/sidebar-header-l-img.png);
   background-size: contain;
@@ -34,4 +52,8 @@
   width: 61px;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.sidebar-link {
+  max-height: calc(100dvh - 78px);
 }
