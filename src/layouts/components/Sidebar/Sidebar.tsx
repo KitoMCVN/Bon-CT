@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { SidebarItemProps, SidebarItems } from "../../../data/sidebarData";
+import { SidebarItemProps } from "../../../data/sidebarData";
 
 interface SidebarProps {
   items: SidebarItemProps[];
@@ -10,9 +10,25 @@ interface SidebarProps {
   toggleMenu: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items = SidebarItems }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items }) => {
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        toggleMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [toggleMenu]);
+
   return (
     <div
+      ref={sidebarRef}
       className={`${isOpen ? "translate-x-0" : "xl:translate-x-0 -translate-x-full"} xl:block xl:z-0 z-50 xl:static fixed top-0 left-0 bg-white dark:bg-gray-800 overflow-hidden xl:rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] xl:w-[210px] xl:-mt-[60px] xl:h-auto h-dvh w-full max-w-80 transition-transform duration-300 ease-in-out`}
     >
       <div className='xl:w-[210px]'>

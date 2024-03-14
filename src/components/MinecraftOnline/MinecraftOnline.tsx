@@ -44,7 +44,7 @@ const MinecraftOnline: React.FC = () => {
       </div>
       {serverData ? (
         <div className=''>
-          {serverData.players.list ? (
+          {serverData.players && serverData.players.list ? (
             <div className='px-[15px]'>
               {serverData.players.list.map((player) => (
                 <div className='flex items-center py-3 gap-4' key={player.name}>
