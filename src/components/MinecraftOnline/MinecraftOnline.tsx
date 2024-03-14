@@ -39,8 +39,8 @@ const MinecraftOnline: React.FC = () => {
 
   return (
     <div className='mt-5 bg-white dark:bg-gray-800 rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)]'>
-      <div className='flex p-[15px] pr-14 border-b-[2px] border-b-sky-600'>
-        <h3 className='mc-online font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50'>Server Online</h3>
+      <div className='mc-online flex p-[15px] pr-14 border-b-[2px] border-b-sky-600'>
+        <h3 className='font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50'>Server Online</h3>
       </div>
       {serverData ? (
         <div className=''>
