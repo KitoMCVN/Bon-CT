@@ -30,7 +30,7 @@ const MinecraftOnline: React.FC = () => {
         const data = await response.json();
         setServerData(data);
       } catch (error) {
-        console.error("Error fetching server data:", error);
+        console.error("Lỗi:", error);
       }
     };
 
@@ -47,22 +47,22 @@ const MinecraftOnline: React.FC = () => {
           {serverData.players.list ? (
             <div className='px-[15px]'>
               {serverData.players.list.map((player) => (
-                <div className='flex items-center py-[15px] gap-4' key={player.name}>
+                <div className='flex items-center py-3 gap-4' key={player.name}>
                   <Image className='size-8 rounded-sm' src={`https://mineskin.eu/avatar/${player.name}/32`} alt={`${player.name}`} />
                   <div className='text-sm text-gray-800 dark:text-gray-300'>
                     <p className='text-green-700 dark:text-green-500'>{player.name}</p>
-                    <p className='text-xs'>Member</p>
+                    <p className='text-xs'>🙍‍♂️ Member</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div></div>
+            <div className='px-[15px] py-3 text-gray-800 text-sm'>Không có ai chơi cả</div>
           )}
         </div>
       ) : (
         <div className='px-[15px]'>
-          <div className='flex items-center py-[15px] gap-4'>
+          <div className='flex items-center py-3 gap-4'>
             <div className='size-8 rounded-sm bg-slate-300 animate-pulse'></div>
             <div>
               <p className='h-3 w-24 rounded-full bg-slate-300 animate-pulse'></p>
