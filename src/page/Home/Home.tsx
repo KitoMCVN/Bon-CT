@@ -20,6 +20,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className='h-[10000px]'></div>
     </div>
   );
 };
