@@ -32,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items }) => {
       className={`${isOpen ? "translate-x-0" : "xl:translate-x-0 -translate-x-full"} xl:block xl:z-0 z-50 xl:static fixed top-0 left-0 bg-white dark:bg-gray-800 overflow-hidden xl:rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] xl:w-[210px] xl:-mt-[60px] xl:h-auto h-dvh w-full max-w-80 transition-transform duration-300 ease-in-out`}
     >
       <div className='xl:w-[210px]'>
-        <div className='xl:hidden flex p-4 border-b text-gray-700 dark:text-gray-300 dark:border-b-gray-600 border-b-gray-400 bg-gray-100 dark:bg-gray-700/50 items-center justify-between bg-gray-'>
+        <div className='xl:hidden flex p-4 border-b text-gray-700 dark:text-gray-300 dark:border-b-gray-600 border-b-gray-400 bg-gray-100 dark:bg-gray-700/50 items-center justify-between'>
           <h3 className='font-bold uppercase'>Menu</h3>
           <FontAwesomeIcon icon={faXmark} onClick={toggleMenu} className='cursor-pointer' />
         </div>
@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items }) => {
             alt='logo'
           />
         </div>
-        <div className='mt-5 xl:h-auto h-full sidebar-link overflow-y-scroll'>
+        <div className='mt-5 xl:h-auto h-full sidebar-link xl:overflow-y-visible overflow-y-scroll'>
           <div className='pr-5'>
             {items.map((item) => (
               <Link key={item.id} to={item.path}>
