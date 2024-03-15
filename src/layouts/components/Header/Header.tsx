@@ -6,6 +6,7 @@ import { DarkMode } from "../../../components/DarkMode";
 import { Button } from "../../../components/Button";
 import useCopy from "../../../hooks/useCopy";
 import Tippy from "@tippyjs/react";
+import "tippy.js/animations/scale.css";
 import "tippy.js/dist/tippy.css";
 
 interface HeaderProps {
@@ -53,8 +54,14 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, toggleStatus }) => {
           <Button onClick={handleCopyClick} className='bg-sky-600 hover:-translate-y-1 hover:bg-sky-500 text-white'>
             BonCity.net
           </Button>
-          <FontAwesomeIcon onClick={toggleStatus} icon={faEllipsisVertical} className='lg:hidden flex gap-2 items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 cursor-pointer dark:hover:text-gray-50' />
-          <Tippy content='Donate'>
+          <Tippy content='🪁 Online' animation='scale' offset={[0, 20]}>
+            <FontAwesomeIcon
+              onClick={toggleStatus}
+              icon={faEllipsisVertical}
+              className='focus:outline-none lg:hidden flex gap-2 items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 cursor-pointer dark:hover:text-gray-50'
+            />
+          </Tippy>
+          <Tippy content='💸 Donate' animation='scale' offset={[0, 20]}>
             <Link className='flex gap-2 items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50' to='/donate'>
               <FontAwesomeIcon icon={faCircleDollarToSlot} />
             </Link>

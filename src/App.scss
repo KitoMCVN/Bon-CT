@@ -11,6 +11,31 @@
   #app ::-webkit-scrollbar-thumb {
     background-color: #374151;
   }
+  [data-tippy-root] {
+    .tippy-box {
+      background-color: #1f2937;
+      filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    }
+    .tippy-arrow::before {
+      color: #1f2937;
+    }
+    .tippy-content {
+      color: #f8fafc;
+    }
+  }
+}
+
+[data-tippy-root] {
+  .tippy-box {
+    background-color: #fff;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  }
+  .tippy-arrow::before {
+    color: #fff;
+  }
+  .tippy-content {
+    color: #1f2937;
+  }
 }
 
 #app {
@@ -24,41 +49,35 @@
     border-radius: 10px;
     background-color: #d1d5db;
   }
-}
-
-.sidebar-header {
-  background: url(./assets/imgs/sidebar-header-l-img.png) no-repeat center/cover;
-  text-align: center;
-}
-
-.sidebar-footer {
-  background: url(./assets/imgs/sidebar-footer-img.png) no-repeat center/cover;
-  text-align: end;
-}
-
-.mc-online::after,
-.dis-online::after {
-  content: "";
-  position: absolute;
-  right: 18px;
-}
-
-.mc-online::after {
-  background: url(./assets/imgs/decorate/members-online-widget.png) no-repeat center/cover;
-  height: 55px;
-  transform: translateY(-18px);
-  width: 61px;
-}
-
-.dis-online::after {
-  background: url(./assets/imgs/decorate/discord-online-widget.png) no-repeat center/cover;
-  height: 62px;
-  transform: translateY(-27px);
-  width: 54px;
-}
-
-.sidebar-link {
-  max-height: calc(100vh - 78px);
+  .sidebar-header {
+    background: url(./assets/imgs/sidebar-header-l-img.png) no-repeat center/cover;
+    text-align: center;
+  }
+  .sidebar-footer {
+    background: url(./assets/imgs/sidebar-footer-img.png) no-repeat center/cover;
+    text-align: end;
+  }
+  .mc-online::after,
+  .dis-online::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+  }
+  .mc-online::after {
+    background: url(./assets/imgs/decorate/members-online-widget.png) no-repeat center/cover;
+    height: 55px;
+    transform: translateY(-18px);
+    width: 61px;
+  }
+  .dis-online::after {
+    background: url(./assets/imgs/decorate/discord-online-widget.png) no-repeat center/cover;
+    height: 62px;
+    transform: translateY(-27px);
+    width: 54px;
+  }
+  .sidebar-link {
+    max-height: calc(100vh - 78px);
+  }
 }
 
 @media screen and (min-width: 1024px) {

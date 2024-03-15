@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -12,23 +12,6 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 150 && window.innerWidth > 1024) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`${isOpen ? "translate-x-0" : "xl:translate-x-0 -translate-x-full"} ${scrolled ? "sticky" : "xl:static"} xl:block xl:-top-[156px] xl:z-0 z-50  fixed top-0 left-0 bg-white dark:bg-gray-800 overflow-hidden xl:rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] xl:w-[210px] xl:-mt-[60px] xl:h-auto h-dvh w-full max-w-80 transition-transform duration-300 ease-in-out`}
+      className={`${isOpen ? "translate-x-0" : "xl:translate-x-0 -translate-x-full"} xl:static xl:block xl:-top-[156px] xl:z-0 z-50  fixed top-0 left-0 bg-white dark:bg-gray-800 overflow-hidden xl:rounded-lg shadow-[0_0_10px_rgba(0,0,0,0.25)] xl:w-[210px] xl:-mt-[60px] xl:h-auto h-dvh w-full max-w-80 transition-transform duration-300 ease-in-out`}
     >
       <div className='xl:w-[210px]'>
         <div className='xl:hidden flex p-4 border-b text-gray-700 dark:text-gray-300 dark:border-b-gray-600 border-b-gray-400 bg-gray-100 dark:bg-gray-700/50 items-center justify-between'>
