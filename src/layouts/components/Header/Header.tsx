@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleDollarToSlot, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { DarkMode } from "../../../components/DarkMode";
 import { Button } from "../../../components/Button";
+import useCopy from "../../../hooks/useCopy";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -12,7 +15,11 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar, toggleStatus }) => {
   const [scrolled, setScrolled] = useState(false);
+  const { copyContent } = useCopy();
 
+  const handleCopyClick = () => {
+    copyContent("BonCity.net");
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20 && window.innerWidth > 768) {
@@ -43,11 +50,15 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, toggleStatus }) => {
           </div>
         </div>
         <div className='flex items-center float-right gap-4'>
-          <Button className='bg-sky-600 hover:-translate-y-1 hover:bg-sky-500 text-white'>bonchoituot.net</Button>
+          <Button onClick={handleCopyClick} className='bg-sky-600 hover:-translate-y-1 hover:bg-sky-500 text-white'>
+            BonCity.net
+          </Button>
           <FontAwesomeIcon onClick={toggleStatus} icon={faEllipsisVertical} className='lg:hidden flex gap-2 items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 cursor-pointer dark:hover:text-gray-50' />
-          <Link className='flex gap-2 items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50' to='/donate'>
-            <FontAwesomeIcon icon={faCircleDollarToSlot} />
-          </Link>
+          <Tippy content='Donate'>
+            <Link className='flex gap-2 items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50' to='/donate'>
+              <FontAwesomeIcon icon={faCircleDollarToSlot} />
+            </Link>
+          </Tippy>
           <DarkMode></DarkMode>
         </div>
       </nav>
