@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { SidebarItemProps } from "../../../data/sidebarData";
+import SidebarLogo from "../../../assets/imgs/decorate/sidebar-logo-img.png";
 
 interface SidebarProps {
   items: SidebarItemProps[];
@@ -37,11 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleMenu, items }) => {
           <FontAwesomeIcon icon={faXmark} onClick={toggleMenu} className='cursor-pointer' />
         </div>
         <div className='xl:flex hidden max-h-40 overflow-hidden w-full items-center justify-center sidebar-header'>
-          <img
-            className='size-36 object-contain'
-            src='https://media.discordapp.net/attachments/1063673504014278697/1215198681725280256/Khong_Co_Tieu_e154_20240307084345.png?ex=65fbe0f7&is=65e96bf7&hm=86bd82066bd51bb7a5f582fc55645bfae6fcd1a804a8b24c6d7d882344ccdcd1&=&format=webp&quality=lossless&width=501&height=501'
-            alt='logo'
-          />
+          <img className='size-36 object-contain' src={SidebarLogo} alt='logo' />
         </div>
         <div className='mt-5 xl:h-auto h-full sidebar-link xl:overflow-y-visible overflow-y-scroll'>
           <div className='pr-5'>

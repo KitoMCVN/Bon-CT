@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleDollarToSlot, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { DarkMode } from "../../../components/DarkMode";
 import { Button } from "../../../components/Button";
+import { Image } from "../../../components/Image";
 import useCopy from "../../../hooks/useCopy";
 import Tippy from "@tippyjs/react";
 import "tippy.js/animations/scale.css";
@@ -47,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, toggleStatus }) => {
             <FontAwesomeIcon icon={faBars} onClick={toggleSidebar} />
           </button>
           <div className='size-10 rounded-lg overflow-hidden'>
-            <img className='size-full' src='/logo.png' alt='logo' />
+            <Image className='size-full' src='/logo.png' alt='logo'></Image>
           </div>
         </div>
         <div className='flex items-center float-right gap-4'>
