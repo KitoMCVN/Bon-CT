@@ -7,8 +7,6 @@ import { Button } from "../../../components/Button";
 import { Image } from "../../../components/Image";
 import useCopy from "../../../hooks/useCopy";
 import Tippy from "@tippyjs/react";
-import "tippy.js/animations/scale.css";
-import "tippy.js/dist/tippy.css";
 
 interface HeaderProps {
   toggleSidebar: () => void;

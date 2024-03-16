@@ -97,7 +97,7 @@ const DiscordOnline: React.FC = () => {
           </g>
         </g>
       </svg>
-      <div className='mt-3 text-gray-50 flex justify-between items-center'>
+      <div className='mt-1 text-gray-50 flex justify-between items-center'>
         <div>
           <div className='text-xl font-bold'>{serverData ? <>{serverData.presence_count}</> : <p>Loading...</p>}</div>
           <div className='text-sm'>Members Online</div>

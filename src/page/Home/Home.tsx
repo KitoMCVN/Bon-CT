@@ -1,4 +1,5 @@
 import { Button } from "../../components/Button";
+import MiniGame from "./MiniGame";
 
 const Home = () => {
   return (
@@ -18,7 +19,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='h-[10000px]'></div>
+      <div className='h-[10000px]'>
+        <MiniGame></MiniGame>
+      </div>
     </div>
   );
 };
