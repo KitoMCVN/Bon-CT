@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { Button } from "../../components/Button";
-import MiniGame from "./MiniGame";
+import MiniGameList from "./MiniGameList";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Trang Chủ · Bon City";
+  }, []);
+
   return (
     <div className='w-full'>
       <div className='mb-5'>
@@ -20,7 +25,7 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <MiniGame></MiniGame>
+        <MiniGameList></MiniGameList>
       </div>
     </div>
   );

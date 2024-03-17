@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { minigameData } from "../../data/minigameData";
 import Tippy from "@tippyjs/react";
 
-const MiniGame: React.FC = () => {
+const MiniGameList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const gamesPerPage: number = 5;
   const indexOfLastGame: number = currentPage * gamesPerPage;
@@ -56,4 +56,4 @@ const MiniGame: React.FC = () => {
   );
 };
 
-export default MiniGame;
+export default MiniGameList;
