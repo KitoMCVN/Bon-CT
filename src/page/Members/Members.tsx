@@ -125,10 +125,44 @@ const Members: React.FC = () => {
     <div className="flex md:flex-row flex-col items-start w-full gap-5">
       <div className="rounded-lg w-full shadow-[0_0_10px_rgba(0,0,0,0.25)] bg-white dark:bg-slate-800">
         <div className="flex p-[15px] pr-14 border-b-[2px] border-b-sky-600">
+          <h3 className="font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50">Discord Online</h3>
+        </div>
+        <div className="px-[15px]">
+          {discordData && discordData.members ? (
+            discordData.members.map((member) => (
+              <div className="flex items-center py-3 gap-4" key={member.id}>
+                <Image className="h-8 w-8 rounded-sm" src={member.avatar_url} alt={`${member.username}`} />
+                <div className="text-sm text-gray-800 dark:text-gray-300">
+                  <p className="text-green-700 dark:text-green-500">{member.username}</p>
+                  <p className="text-xs">
+                    {statusTextMap[member.status]}
+                    {member.game && <span> ({member.game.name})</span>}
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="flex items-center py-3 gap-4">
+              <div className="h-8 w-8 rounded-sm bg-slate-300 animate-pulse"></div>
+              <div>
+                <p className="h-3 w-24 rounded-full bg-slate-300 animate-pulse"></p>
+                <p className="mt-2 h-2 w-20 rounded-full bg-slate-300 animate-pulse"></p>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="px-[15px] py-3 bg-gray-100 dark:bg-gray-700/50 rounded-bl-lg rounded-br-lg border-t dark:border-t-gray-600 border-t-gray-400">
+          <p className="text-gray-600 dark:text-gray-300 text-xs">
+            Online: {onlineCount}, Idle: {idleCount}, Dnd: {dndCount}
+          </p>
+        </div>
+      </div>
+      <div className="rounded-lg w-full shadow-[0_0_10px_rgba(0,0,0,0.25)] bg-white dark:bg-slate-800">
+        <div className="flex p-[15px] pr-14 border-b-[2px] border-b-sky-600">
           <h3 className="font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50">Staff Online</h3>
         </div>
         <div className="px-[15px]">
-          {filteredMembers ? (
+          {filteredMembers && filteredMembers.length > 0 ? (
             filteredMembers.map((member) => (
               <div className="flex items-center py-3 gap-4" key={member.id}>
                 <Image className="h-8 w-8 rounded-sm" src={member.avatar_url} alt={`${member.username}`} />
@@ -147,6 +181,9 @@ const Members: React.FC = () => {
               </div>
             </div>
           )}
+        </div>
+        <div className="px-[15px] py-3 bg-gray-100 dark:bg-gray-700/50 rounded-bl-lg rounded-br-lg border-t dark:border-t-gray-600 border-t-gray-400">
+          <p className="text-gray-600 dark:text-gray-300 text-xs">Nếu load hog đc thì chả ai online</p>
         </div>
       </div>
       <div className="rounded-lg w-full shadow-[0_0_10px_rgba(0,0,0,0.25)] bg-white dark:bg-slate-800">
@@ -185,40 +222,6 @@ const Members: React.FC = () => {
             ) : (
               <>Trực tuyến: 0 (Offline)</>
             )}
-          </p>
-        </div>
-      </div>
-      <div className="rounded-lg w-full shadow-[0_0_10px_rgba(0,0,0,0.25)] bg-white dark:bg-slate-800">
-        <div className="flex p-[15px] pr-14 border-b-[2px] border-b-sky-600">
-          <h3 className="font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50">Discord Online</h3>
-        </div>
-        <div className="px-[15px]">
-          {discordData && discordData.members ? (
-            discordData.members.map((member) => (
-              <div className="flex items-center py-3 gap-4" key={member.id}>
-                <Image className="h-8 w-8 rounded-sm" src={member.avatar_url} alt={`${member.username}`} />
-                <div className="text-sm text-gray-800 dark:text-gray-300">
-                  <p className="text-green-700 dark:text-green-500">{member.username}</p>
-                  <p className="text-xs">
-                    {statusTextMap[member.status]}
-                    {member.game && <span> ({member.game.name})</span>}
-                  </p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="flex items-center py-3 gap-4">
-              <div className="h-8 w-8 rounded-sm bg-slate-300 animate-pulse"></div>
-              <div>
-                <p className="h-3 w-24 rounded-full bg-slate-300 animate-pulse"></p>
-                <p className="mt-2 h-2 w-20 rounded-full bg-slate-300 animate-pulse"></p>
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="px-[15px] py-3 bg-gray-100 dark:bg-gray-700/50 rounded-bl-lg rounded-br-lg border-t dark:border-t-gray-600 border-t-gray-400">
-          <p className="text-gray-600 dark:text-gray-300 text-xs">
-            Online: {onlineCount}, Idle: {idleCount}, Dnd: {dndCount}
           </p>
         </div>
       </div>
