@@ -190,7 +190,7 @@ const Members: React.FC = () => {
             )}
           </p>
         </div>
-      </div>{' '}
+      </div>
       <div className="rounded-lg w-full shadow-[0_0_10px_rgba(0,0,0,0.25)] bg-white dark:bg-slate-800">
         <div className="flex p-[15px] pr-14 border-b-[2px] border-b-sky-600">
           <h3 className="font-extrabold text-sm uppercase text-gray-800 dark:text-gray-50">Discord Online</h3>
