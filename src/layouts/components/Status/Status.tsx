@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { DiscordOnline, MoreDiscordOnline } from "../../../components/DiscordOnline";
-import { MinecraftOnline } from "../../../components/MinecraftOnline";
+import { DiscordOnline, MoreDiscordOnline } from "../DiscordOnline";
+import { MinecraftOnline } from "../MinecraftOnline";
 
 interface StatusProps {
   isStatus: boolean;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image } from "../Image";
+import { Image } from "../../../components/Image";
 
 interface PlayerProps {
   name: string;

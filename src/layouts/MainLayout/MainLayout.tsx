@@ -22,7 +22,7 @@ const MainLayout: React.FC<ChildrenProps> = ({ children }) => {
           {isSidebarOpen && <div className='fixed top-0 xl:hidden block left-0 w-full h-full bg-black opacity-50 z-40'></div>}
           <Sidebar items={SidebarItems} isOpen={isSidebarOpen} toggleMenu={toggleSidebar}></Sidebar>
           <div className='h-full flex-1 mt-5 flex gap-5 relative'>
-            <div className='box w-full h-full flex-1'>{children}</div>
+            <div className='w-full h-full flex-1'>{children}</div>
             {isStatusOpen && <div className='fixed block lg:hidden top-0 left-0 w-full h-full bg-black opacity-50 z-40'></div>}
             <Status isStatus={isStatusOpen} setIsStatus={setIsStatusOpen}></Status>
           </div>

@@ -1,11 +1,16 @@
 import { MainLayout } from "../layouts/MainLayout";
-import { Home } from "../page";
+import { LayoutNoStatus } from "../layouts/LayoutNoStatus";
+import { Home, Members } from "../page";
 
 export const routes = [
   {
     path: "/",
     layout: MainLayout,
     component: Home,
-    exact: true,
+  },
+  {
+    path: "/members",
+    layout: LayoutNoStatus,
+    component: Members,
   },
 ];
